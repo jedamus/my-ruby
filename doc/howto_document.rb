@@ -2,9 +2,13 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Freitag, 31. Mai 2019 16:08 (C) 2019 von Leander Jedamus
+# modifiziert Samstag, 08. Juni 2019 18:36 von Leander Jedamus
 # modifiziert Freitag, 31. Mai 2019 16:45 von Leander Jedamus
 
 require "English"
+$LOAD_PATH.unshift(ENV["HOME"]+"/Projekte/ruby/lib")
+$LOAD_PATH.unshift(File.expand_path(File.dirname($PROGRAM_NAME)))
+$LOAD_PATH.unshift(".")
 
 # Dies ist ein Modul.
 module howto
