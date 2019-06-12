@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Mittwoch, 12. Juni 2019 15:14 (C) 2019 von Leander Jedamus
-# modifiziert Mittwoch, 12. Juni 2019 15:38 von Leander Jedamus
+# modifiziert Mittwoch, 12. Juni 2019 16:32 von Leander Jedamus
 
 require "English"
 require "optparse"
@@ -34,7 +34,7 @@ class Parser
 end
 # options = Parser.parse %w[--help]
 options = Parser.parse(ARGV)
-puts options
+puts options[0]
 
 # vim:ai sw=2 sts=4 expandtab
 
