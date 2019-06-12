@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Mittwoch, 12. Juni 2019 16:43 (C) 2019 von Leander Jedamus
+# modified Wednesday, 12. June 2019 17:55 by Leander Jedamus
 # modifiziert Mittwoch, 12. Juni 2019 17:46 von Leander Jedamus
 # modified Wednesday, 12. June 2019 17:30 by Leander Jedamus
 # modifiziert Mittwoch, 12. Juni 2019 17:02 von Leander Jedamus
@@ -16,11 +17,13 @@ $LOAD_PATH.unshift(".")
 # puts $:
 
 #I18n::Backend::Simple.include(I18n::Backend::Gettext)
+
 I18n.load_path += Dir["translate/*.rb"]
-I18n.locale = case ENV["LANG"]
-                when "de_DE.UTF-8" then :de
-                when "C"           then :en
-              end
+
+lang = ENV["LANG"]
+I18n.locale = :en if lang =~ /C/ 
+I18n.locale = :en if lang =~ /en/ 
+I18n.locale = :de if lang =~ /de/ 
 
 puts I18n.translate("gettext")
 
