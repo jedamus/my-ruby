@@ -8,14 +8,18 @@
 # modified Wednesday, 12. June 2019 17:30 by Leander Jedamus
 # modifiziert Mittwoch, 12. Juni 2019 17:02 von Leander Jedamus
 
-require "English"
-$LOAD_PATH.unshift(ENV["HOME"]+"/Projekte/ruby/lib")
-$LOAD_PATH.unshift(File.expand_path(File.dirname($PROGRAM_NAME)))
-$LOAD_PATH.unshift(".")
-#ENV["LANG"] = "en_US"
-require "my_gettext"
+require "i18n"
 
-puts _("gettext")
+def gettext(s)
+  return(I18n.translate(s))
+end
+alias _ gettext
+
+I18n.load_path += Dir[ENV["HOME"]+"/Projekte/ruby/translate/*.rb"]
+
+lang = ENV["LANG"]
+I18n.locale = :en
+I18n.locale = :de if lang =~ /de/ 
 
 # vim:ai sw=2 sts=4 expandtab
 
