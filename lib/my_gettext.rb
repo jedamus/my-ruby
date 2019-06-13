@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Mittwoch, 12. Juni 2019 16:43 (C) 2019 von Leander Jedamus
+# modifiziert Donnerstag, 13. Juni 2019 09:08 von Leander Jedamus
 # modifiziert Mittwoch, 12. Juni 2019 21:36 von Leander Jedamus
 # modified Wednesday, 12. June 2019 17:55 by Leander Jedamus
 # modifiziert Mittwoch, 12. Juni 2019 17:46 von Leander Jedamus
@@ -15,7 +16,10 @@ def gettext(s)
 end
 alias _ gettext
 
-I18n.load_path += Dir[ENV["HOME"]+"/Projekte/ruby/translate/*.rb"]
+path = File.expand_path(File.dirname($PROGRAM_NAME))
+path += "/translate/" + File.basename($PROGRAM_NAME,".rb") + "/*.rb"
+
+I18n.load_path += Dir[path]
 
 lang = ENV["LANG"]
 I18n.locale = :en
