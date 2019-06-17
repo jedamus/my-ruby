@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Montag, 17. Juni 2019 10:29 (C) 2019 von Leander Jedamus
-# modifiziert Montag, 17. Juni 2019 10:42 von Leander Jedamus
+# modifiziert Montag, 17. Juni 2019 10:53 von Leander Jedamus
 
 require "English"
 require "logger"
@@ -18,21 +18,21 @@ logger.formatter = proc do |severity, datetime, progname, msg|
 end
 
 
-logger.debug("Created logger")
-logger.info("Program started")
-logger.warn("Nothing to do!")
+logger.debug { "Created logger" }
+logger.info { "Program started" }
+logger.warn { "Nothing to do!" }
 
 path = "a_non_existent_file"
 
 begin
   File.foreach(path) do |line|
     unless line =~ /^(\w+) = (.*)$/
-      logger.error("Line in wrong format: #{line.chomp}")
+      logger.error { "Line in wrong format: #{line.chomp}" }
     end
   end
 rescue => err
-  logger.fatal("Caught exception; exiting")
-  logger.fatal(err)
+  logger.fatal { "Caught exception; exiting" }
+  logger.fatal { err }
 end
 
 # vim:ai sw=2 sts=4 expandtab
