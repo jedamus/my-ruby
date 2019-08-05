@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Montag, 15. Juli 2019 12:29 (C) 2019 von Leander Jedamus
-# modifiziert Montag, 05. August 2019 10:00 von Leander Jedamus
+# modifiziert Montag, 05. August 2019 10:06 von Leander Jedamus
 # modifiziert Montag, 15. Juli 2019 12:58 von Leander Jedamus
 
 require "English"
@@ -53,14 +53,21 @@ puts innogy_smart
 print "\nevm to innogy: "
 for i in 1.upto(10000)
   if (evm.berechnen(i)-innogy.berechnen(i)).abs < 0.01 then
-    puts i.to_s
+    puts i.to_s + " kWh"
   end
 end
 
 print "\nevm to innogy_smart: "
 for i in 1.upto(10000)
   if (evm.berechnen(i)-innogy_smart.berechnen(i)).abs < 0.01 then
-    puts i.to_s
+    puts i.to_s + " kWh"
+  end
+end
+
+print "\ninnogy to innogy_smart: "
+for i in 1.upto(10000)
+  if (innogy.berechnen(i)-innogy_smart.berechnen(i)).abs < 0.01 then
+    puts i.to_s + " kWh"
   end
 end
   
