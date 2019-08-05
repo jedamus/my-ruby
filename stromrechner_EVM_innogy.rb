@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Montag, 15. Juli 2019 12:29 (C) 2019 von Leander Jedamus
-# modifiziert Montag, 05. August 2019 09:21 von Leander Jedamus
+# modifiziert Montag, 05. August 2019 10:00 von Leander Jedamus
 # modifiziert Montag, 15. Juli 2019 12:58 von Leander Jedamus
 
 require "English"
@@ -30,7 +30,7 @@ class Energieversorger
   end
 
   def to_s()
-    return @name + ": " + runden(berechnen(@verbrauch),2).to_s + " €"
+    return @name + ": " + runden_s(berechnen(@verbrauch),2) + " €"
   end
 
 end
@@ -42,7 +42,7 @@ evm = Energieversorger.new("EVM", 12 * 11.9, 0.265)
 evm.setverbrauch(verbrauch)
 innogy = Energieversorger.new("innogy", 99.96, 0.2855)
 innogy.setverbrauch(verbrauch)
-innogy_smart = Energieversorger.new("innogy", 99.96, 0.2786)
+innogy_smart = Energieversorger.new("innogy_smart", 99.96, 0.2786)
 innogy_smart.setverbrauch(verbrauch)
 
 puts evm
@@ -50,8 +50,16 @@ puts innogy
 puts innogy_smart
 #exit
 
+print "\nevm to innogy: "
 for i in 1.upto(10000)
   if (evm.berechnen(i)-innogy.berechnen(i)).abs < 0.01 then
+    puts i.to_s
+  end
+end
+
+print "\nevm to innogy_smart: "
+for i in 1.upto(10000)
+  if (evm.berechnen(i)-innogy_smart.berechnen(i)).abs < 0.01 then
     puts i.to_s
   end
 end
