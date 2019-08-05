@@ -2,33 +2,20 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Freitag, 07. Juni 2019 15:19 (C) 2019 von Leander Jedamus
-# modifiziert Montag, 05. August 2019 09:57 von Leander Jedamus
+# modifiziert Montag, 05. August 2019 17:51 von Leander Jedamus
 # modifiziert Samstag, 08. Juni 2019 18:42 von Leander Jedamus
 # modifiziert Freitag, 07. Juni 2019 15:21 von Leander Jedamus
 
 require "English"
 
-def runden(z,s)
-  p = 10.0**s
-  z2 = (z*p+0.5).truncate
-  return(z2 / p)
+def runden(zahl,stellen)
+  p = 10.0**stellen
+  zahl2 = (zahl*p+0.5).truncate
+  return(zahl2 / p)
 end
 
-def runden_s(z,s)
-  p = 10.0**s
-  z2 = z*p
-  str = ((z2+0.5).truncate / p).to_s
-  z2 = z2.ceil
-  for i in 1.upto(s-1)
-    p = 10**i
-    # print "i=", i, ", z2 = ", z2, "\n"
-    if (z2 % p) == 0 then
-      str = str + "0"
-    else
-      break
-    end
-  end
-  return str
+def runden_s(zahl,stellen)
+  return sprintf("%." + stellen.to_s + "f",runden(zahl,stellen)) 
 end
 
 #print(runden(1234.5678,2),"\n")
