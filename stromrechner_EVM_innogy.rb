@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Montag, 15. Juli 2019 12:29 (C) 2019 von Leander Jedamus
+# modifiziert Mittwoch, 07. August 2019 08:02 von Leander Jedamus
 # modifiziert Montag, 05. August 2019 11:29 von Leander Jedamus
 # modifiziert Montag, 15. Juli 2019 12:58 von Leander Jedamus
 
@@ -48,6 +49,8 @@ end
 verbrauch = 10000.0 # kWh
 #verbrauch = 2090.0 # kWh
 verbrauch = 1800.0 # kWh
+
+puts "Verbrauch " + verbrauch.to_s + " kWh kostet:"
 evm = Energieversorger.new("EVM", 12 * 11.9, 0.265)
 evm.setverbrauch(verbrauch)
 innogy = Energieversorger.new("innogy", 99.96, 0.2855)
