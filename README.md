@@ -1,5 +1,7 @@
 # ruby
 
+This are just my 2ct for ruby.
+
 ## Getting started
 
-This are just my 2ct for ruby.
+Just look at the files, then sart them.

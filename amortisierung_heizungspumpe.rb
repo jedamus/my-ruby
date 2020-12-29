@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # erzeugt Freitag, 07. Juni 2019 14:42 (C) 2019 von Leander Jedamus
+# modifiziert Mittwoch, 04. September 2019 16:17 von Leander Jedamus
 # modifiziert Freitag, 07. Juni 2019 18:43 von Leander Jedamus
 
 require "English"
@@ -10,7 +11,8 @@ $LOAD_PATH.unshift(File.expand_path(File.dirname($PROGRAM_NAME)))
 $LOAD_PATH.unshift(".")
 require "runden"
 
-euro_pro_kWh = 0.23994
+euro_pro_kWh = 0.2855 # innogy Grundversorgung
+euro_pro_kWh = 0.265 # EVM
 
 tage_pro_jahr = 365.24
 stunden_pro_tag = 24
@@ -25,7 +27,7 @@ kWh = Wh / 1000
 
 preis = kWh * euro_pro_kWh
 #preis = (preis * 100).truncate / 100.0
-preis = runden(preis,2)
+preis = runden_s(preis,2)
 print(preis," €","\n")
 
 # vim:ai sw=2 sts=4 expandtab
